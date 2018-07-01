@@ -89,20 +89,14 @@ void delete(dataType X, dList L)
 	}
 
 	if (p == L->firstNode)
-	{
 		L->firstNode = p->next;
-		free(p);
-		return;
-	}
-
+	else
+		p->prev->next = p->next;
 	if (p == L->lastNode)
-	{
 		L->lastNode = p->prev;
-		free(p);
-		return;
-	}
-
-	p->prev->next = p->next;
+	else
+		p->next->prev = p->prev;
+	
 	free(p);
 }
 
