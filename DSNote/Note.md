@@ -4,7 +4,7 @@
 
 1. Basic structures: List, Tree, Graph
 
-2. Complexity Analysis
+1. Complexity Analysis
 
 ## Lecture 2
 
@@ -34,23 +34,24 @@
 
 1. Definition
 
-  > In computer science, a loop invariant is an invariant used to prove properties of loops.
+   > In computer science, a loop invariant is an invariant used to prove properties of loops.
 
-2. Propoties
-  * **Initialization**: It is true prior to the first iteration of the loop.
-  * **Maintenance**:  If it is true before an iteration of the loop, it remains true before the next iteration.
-  * **Termination**: When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct.
+1. Propoties
 
-3. [Floyd-Hoare Logic](https://en.wikipedia.org/wiki/Hoare_logic)
+   * **Initialization**: It is true prior to the first iteration of the loop.
+   * **Maintenance**:  If it is true before an iteration of the loop, it remains true before the next iteration.
+   * **Termination**: When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct.
 
-  1. Definition
+1. [Floyd-Hoare Logic](https://en.wikipedia.org/wiki/Hoare_logic)
 
-    > A formal system with a set of logical rules for reasoning rigorously about the correctness of computer programs.
+   1. Definition
 
-  2. Hoare Triple
+      > A formal system with a set of logical rules for reasoning rigorously about the correctness of computer programs.
 
-    The central feature of Hoare logic is the Hoare triple. A triple describes how the execution of a piece of code changes the state of the computation. A Hoare triple is of the form
+   1. Hoare Triple
 
-    `{P} C {Q}`
+      The central feature of Hoare logic is the Hoare triple. A triple describes how the execution of a piece of code changes the state of the computation. A Hoare triple is of the form
 
-    where P and Q are assertions and C is a command. P is named the precondition and Q the postcondition: when the precondition is met, executing the command establishes the postcondition. Assertions are formulae in predicate logic.
+      `{P} C {Q}`
+
+      where P and Q are assertions and C is a command. P is named the precondition and Q the postcondition: when the precondition is met, executing the command establishes the postcondition. Assertions are formulae in predicate logic.
