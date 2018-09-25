@@ -42,6 +42,7 @@
   * **Termination**: When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct.
 
 3. [Floyd-Hoare Logic](https://en.wikipedia.org/wiki/Hoare_logic)
+
   1. Definition
 
     > A formal system with a set of logical rules for reasoning rigorously about the correctness of computer programs.
