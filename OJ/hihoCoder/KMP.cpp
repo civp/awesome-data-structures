@@ -4,30 +4,35 @@
 
 int kmp(std::string pattern, std::string text)
 {
-	int *next = new int[pattern.size()]; // Auxiliary next
+	std::vector<int> next(pattern.size() + 1); // Auxiliary next, index starts from 0
 	next[0] = -1;
 	int k = -1;
-	for (size_t i = 0; i <= pattern.size(); ++i)
+	for (size_t i = 0; i < pattern.size(); ++i)
 	{
-		while (k >= 0 && pattern[k + 1] != pattern[i])
+		while (k >= 0 && pattern[k] != pattern[i])
 			k = next[k];
-		next[i] = ++k;
+		next[i + 1] = ++k;
 	}
 
+	// for (auto i : next)
+	// 	std::cout << i << ' ';
+	// std::cout << std::endl;
+
 	k = 0;
-	for (size_t i = 0; i <= text.size(); ++i)
+	int cnt = 0; // answer
+	for (size_t i = 0; i < text.size(); ++i)
 	{
-		while (k >= 0 && pattern[k + 1] != text[i])
+		while (k >= 0 && pattern[k] != text[i])
 			k = next[k];
 		++k;
 		if (k == pattern.size())
 		{
 			// pattern matches text[i - m + 1..i]
+			++cnt;
 			k = next[k];
 		}
 	}
 
-	delete[] next;
 	return cnt;
 }
 
