@@ -24,26 +24,26 @@ The main problem is how to **remember** the other siblings when we visit one chi
 
 1. A POJ Problem
 
-  > Recover a binary tree from inorder/preorder/postorder traversal.
+   > Recover a binary tree from inorder/preorder/postorder traversal.
 
-  * *in* + *pre* implies *post*, *in* + *post* implies *pre*, while *pre* + *post* fails to fix *in*. Proof: *rLR*, *LRr* implies *L~R*, which means we can't tell *L* from *R* given preorder and postorder traversal results.
+   * *in* + *pre* implies *post*, *in* + *post* implies *pre*, while *pre* + *post* fails to fix *in*. Proof: *rLR*, *LRr* implies *L~R*, which means we can't tell *L* from *R* given preorder and postorder traversal results.
 
 1. Push/Pop Sequence
 
-  > Given a push/pop sequence, recover a tree.
+   > Given a push/pop sequence, recover a tree.
 
-  * Solution: push: go left, pop: go right
+   * Solution: push: go left, pop: go right
 
-  * Inorder/preorder/postorder **share** the stack operation sequence.
+   * Inorder/preorder/postorder **share** the stack operation sequence.
 
-  * The number of pop sequences of length n is **C(n)**, the Catalan number.
+   * The number of pop sequences of length n is **C(n)**, the Catalan number.
 
-  Recursive Definition: <img src="https://latex.codecogs.com/svg.latex?C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" title="C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" />
+   Recursive Definition: <img src="https://latex.codecogs.com/svg.latex?C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" title="C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" />
 
-  Analytical Expression: <img src="https://latex.codecogs.com/svg.latex?C(n)=\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
+   Analytical Expression: <img src="https://latex.codecogs.com/svg.latex?C(n)=\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
 
-  * Push sequence of nodes = preorder traversal
-  Pop sequence of nodes = inorder traversal
+   * Push sequence of nodes = preorder traversal
+   * Pop sequence of nodes = inorder traversal
 
 ### With a Queue
 
