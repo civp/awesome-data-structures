@@ -1,14 +1,14 @@
-# Data Structure Notes
+# Introduction
 
-## Lecture 1
+## Lec 1
 
 1. Basic structures: List, Tree, Graph
 
 1. Complexity Analysis
 
-## Lecture 2
+## Lec 2
 
-### Algorithm Paradigms
+### Some Algorithm Paradigms
 
 * Greedy Algorithm
 

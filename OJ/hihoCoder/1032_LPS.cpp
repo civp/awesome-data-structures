@@ -1,4 +1,4 @@
-// Longest palindrome substring O(N^2)
+// Longest palindrome substring O(N)
 #include <iostream>
 #include <vector>
 #include <string>
