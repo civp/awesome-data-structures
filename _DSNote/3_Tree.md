@@ -1,5 +1,13 @@
 # Trees
 
+## Some Maths
+
+<img src="https://latex.codecogs.com/svg.latex?e=\sum&space;i&space;n_i=\sum&space;n_i&space;-&space;1" title="e=\sum i n_i=\sum n_i - 1" />
+
+Specially, we have <img src="https://latex.codecogs.com/svg.latex?n_0&space;=&space;n_2&space;&plus;&space;1" title="n_0 = n_2 + 1" /> for binary tree.
+
+Where *e* denotes number of edges, *n<sub>i</sub>* denotes the number of nodes with *i* children.
+
 ## Binary Trees
 
 Every tree can be represented in the form of child/next sibling, which means every tree can be converted to a binary tree if you like.
@@ -18,22 +26,39 @@ The main problem is how to **remember** the other siblings when we visit one chi
 
 > Recover a binary tree from inorder/preorder/postorder traversal.
 
-* Inorder/preorder/postorder **share** the stack operation sequence.
-
 * *in* + *pre* implies *post*, *in* + *post* implies *pre*, while *pre* + *post* fails to fix *in*. Proof: *rLR*, *LRr* implies *L~R*, which means we can't tell *L* from *R* given preorder and postorder traversal results.
 
-1. Pop Sequence
+1. Push/Pop Sequence
 
-> Given a pop sequence, recover a tree.
+> Given a push/pop sequence, recover a tree.
+
+* Solution: push: go left, pop: go right
+
+* Inorder/preorder/postorder **share** the stack operation sequence.
 
 * The number of pop sequences of length n is **C(n)**, the Catalan number.
 
-C<sub>n</sub> = &Sigma; C<sub>i</sub> C<sub>n - i - 1</sub>
+Recursive Definition: <img src="https://latex.codecogs.com/svg.latex?C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" title="C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" />
 
-<img src="https://latex.codecogs.com/svg.latex?\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
+Analytical Expression: <img src="https://latex.codecogs.com/svg.latex?C(n)=\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
 
-<img src="https://latex.codecogs.com/svg.latex?C(n)&space;=&space;\sum&space;C(i)C(n&space;-&space;i&space;-&space;1)" title="C(n) = \sum C(i)C(n - i - 1)" />
+* Push sequence of nodes = preorder traversal
+  Pop sequence of nodes = inorder traversal
 
 ### With a Queue
 
-Level Order Traversal, or BFS.
+Level Order Traversal, or BFS
+
+### Thread Trees
+
+Make full use of pointers
+
+## Dynamic Search
+
+* AVL Tree/Red Black Tree/B+ Tree
+
+* Hash
+
+### Binary Search Tree
+
+Trivial
