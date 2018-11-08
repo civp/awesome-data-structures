@@ -38,9 +38,9 @@ The main problem is how to **remember** the other siblings when we visit one chi
 
    * The number of pop sequences of length n is **C(n)**, the Catalan number.
 
-   Recursive Definition: <img src="https://latex.codecogs.com/svg.latex?C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" title="C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" />
+      * Recursive Definition: <img src="https://latex.codecogs.com/svg.latex?C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" title="C(n)=\sum_{i=0}^{n-1}C(i)C(n-i-1)" />
 
-   Analytical Expression: <img src="https://latex.codecogs.com/svg.latex?C(n)=\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
+      * Analytical Expression: <img src="https://latex.codecogs.com/svg.latex?C(n)=\frac{1}{n&plus;1}C(2n,&space;n)" title="\frac{1}{n+1}C(2n, n)" />
 
    * Push sequence of nodes = preorder traversal
    * Pop sequence of nodes = inorder traversal
