@@ -1,4 +1,6 @@
-// #4 Largest palindrome product
+/*
+ * #4 Largest palindrome product
+ */
 #include <iostream>
 
 int main(int argc, char const *argv[])
