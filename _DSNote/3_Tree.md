@@ -61,4 +61,8 @@ Make full use of pointers
 
 ### Binary Search Tree
 
-Trivial
+Maintain the order of *L < r < R*
+
+## Heap
+
+Maintain hierarchy order(partial order)
