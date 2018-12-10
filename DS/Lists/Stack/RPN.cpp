@@ -1,22 +1,23 @@
+// Reverse Poland Notation
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <cctype>
 #include <stack>
-#include <windows.h>
 using namespace std;
 
 int main()
 {
-	string str; // Reverse portland
+	string str;
 	getline(cin, str);
 
 	stack<double> s;
+	bool validInput = true;
 	for (auto c : str)
 	{
 		if (isdigit(c))
 			s.push(c - '0');
-		else if (c == '+')
+		else if (c == '+') // TODO: simplify it using templates
 		{
 			double e1 = s.top();
 			s.pop();
@@ -50,17 +51,20 @@ int main()
 		}
 		else
 		{
-			cout << "Wrong Input!" << endl;
+			validInput= false;
 			break;
 		}
 	}
 
-	double res = s.top();
-	s.pop();
-	cout.setf(ios::fixed);
-	cout << "Answer: " << fixed << setprecision(6) << res << endl;
-
-	system("pause");
+	if (!validInput || s.size() != 1)
+		cout << "Wrong Input!" << endl;
+	else
+	{
+		double res = s.top();
+		s.pop();
+		cout.setf(ios::fixed);
+		cout << "Answer: " << fixed << setprecision(6) << res << endl;
+	}
 
 	return 0;
 }
