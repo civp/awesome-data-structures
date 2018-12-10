@@ -21,8 +21,8 @@ void printArray(int *a, const size_t n)
 
 int main(int argc, char const *argv[])
 {
-	const size_t n = 5;
-	int a[5] = {123, -213, 15543, 2142, -2342};
+	int a[] = {123, -213, 15543, 2142, -2342, 214234, 686896, -25134};
+	const size_t n = sizeof(a) / sizeof(*a);
 
 	insertionSort(a, a + n - 1, strictlyDecreasing);
 	printArray(a, n);

@@ -33,6 +33,7 @@ void mergeSort(T *fst, T *lst, Compare comp)
 
 }
 
+// BUG
 void quickSort(T *fst, T *lst, Compare comp)
 {
 	if (lst - fst <= 1)
@@ -71,6 +72,7 @@ T *median3(T **fst, T **lst, Compare comp)
 {
 	T *left = *fst, *right = *lst;
 	T *mid = left + (right - left) / 2;
+
 	if (comp(*left, *mid) < 0)
 		swap(left, mid);
 	if (comp(*left, *right) < 0)
