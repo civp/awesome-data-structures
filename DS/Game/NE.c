@@ -1,3 +1,7 @@
+/*
+ * Find Nash Equilibium
+ * Trivial implementation
+ */
 #include <stdio.h>
 #include <string.h>
 
