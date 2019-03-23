@@ -32,7 +32,7 @@ public:
     ~CSkewHeap();
     void Insert(T key);
     T PopMin();
-    CSkewHeap &Union(CSkewHeap &sh);
+    void Union(CSkewHeap &sh);
 private:
     SkewNode<T> *_Merge(SkewNode<T> *root_1, SkewNode<T> *root_2);
     // void _Purge(SkewNode<T> *root);
@@ -49,14 +49,14 @@ CSkewHeap<T, CompareFunction>::~CSkewHeap()
 {
     // _Purge(root);
     while (root != nullptr)
-        PopMin(root);
+        PopMin();
 }
 
 template<class T, class CompareFunction>
 void CSkewHeap<T, CompareFunction>::Insert(T key)
 {
     SkewNode<T> newNode(key);
-    _Merge(this->root, newNode);
+    _Merge(this->root, &newNode);
 }
 
 template<class T, class CompareFunction>
@@ -72,11 +72,9 @@ T CSkewHeap<T, CompareFunction>::PopMin()
 }
 
 template<class T, class CompareFunction>
-CSkewHeap<T, CompareFunction> &CSkewHeap<T, CompareFunction>::Union(CSkewHeap<T, CompareFunction> &sh)
+void CSkewHeap<T, CompareFunction>::Union(CSkewHeap<T, CompareFunction> &sh)
 {
-    CSkewHeap<T, CompareFunction> newSkewHeap;
-    newSkewHeap->root = _Merge(this->root, sh.root);
-    return newSkewHeap;
+    this->root =  _Merge(this->root, sh.root);
 }
 
 // Recursive
@@ -92,9 +90,9 @@ SkewNode<T> *CSkewHeap<T, CompareFunction>::_Merge(SkewNode<T> *root_1, SkewNode
     if (secondRoot == nullptr)
         return firstRoot;
 
-    if(CompareFunction.Less(firstRoot->key, secondRoot->key))
+    if (firstRoot->key < secondRoot->key) // this sucks
     {
-        SkewNode<T>* tempHeap = firstRoot->rightNode;
+        SkewNode<T> *tempHeap = firstRoot->rightNode;
         firstRoot->rightNode = firstRoot->leftNode;
         firstRoot->leftNode = _Merge(secondRoot, tempHeap);
         return firstRoot;
@@ -108,6 +106,13 @@ SkewNode<T> *CSkewHeap<T, CompareFunction>::_Merge(SkewNode<T> *root_1, SkewNode
 // {
 
 // }
+
+template<class T>
+class CompareFunction
+{
+public:
+    bool Less(T a, T b);
+};
 
 class IntegerCompare
 {
@@ -124,9 +129,11 @@ int main()
     sh1.Insert(1);
     sh1.Insert(3);
     sh1.Insert(5);
+    std::cout << sh1.PopMin() << std::endl; // some bugs
     sh2.Insert(7);
     sh2.Insert(2);
-    CSkewHeap<int, IntegerCompare> sh = sh1.Union(sh2);
+    sh1.Union(sh2);
+    std::cout << sh1.PopMin() << std::endl;
     std::cout << sh1.PopMin() << std::endl;
 
     return 0;
